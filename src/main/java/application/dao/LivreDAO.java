@@ -30,7 +30,6 @@ public class LivreDAO {
 		jdbcTemplate.getJdbcOperations().execute("DROP TABLE IF EXISTS etat;");
 		jdbcTemplate.getJdbcOperations().execute(createDB);
 
-
 		Faker f = new Faker();
 		Random r = new Random();
 
@@ -91,12 +90,16 @@ public class LivreDAO {
 
 	public Livre getLivre(int id) {
 		Map<String, Integer> etat = new HashMap<>();
-
+		Livre r;
 		String sql = "SELECT * FROM livres where id LIKE :id";
 
 		etat.put("id", id);
-		Livre r = jdbcTemplate.queryForObject(sql, etat, new BeanPropertyRowMapper<Livre>(Livre.class));
-		System.out.println(r);
+		try {
+			r = jdbcTemplate.queryForObject(sql, etat, new BeanPropertyRowMapper<Livre>(Livre.class));
+		} catch (Exception e) {
+			r = null;
+		}
+
 		return r;
 	}
 
