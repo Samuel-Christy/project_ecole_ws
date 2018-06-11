@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix ="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,35 +29,24 @@ tr:nth-child(even) {
 <h2>Listes des Livres</h2>
 
 <table>
-  <tr>
+	<tr>
     <th>Titre</th>
     <th>Année</th>
     <th>Nom_Auteur</th>
      <th>Prenom_Auteur</th>
      <th>Editeur</th>
   </tr>
-  <tr>
-    <td>Un tramway nommé désir</td>
-    <td>1947</td>
-    <td>Willimas</td>
-    <td>Tenessee</td>
-    <td>livre de poche</td>
-  </tr>
-  <tr>
-    <td>Le vieux qui lisait des romans d'amour</td>
-    <td>1992</td>
-    <td>Spulveda</td>
-    <td>Luis</td>
-    <td>livre de poche</td>
-  </tr>
-     <tr>
-    <td>Guerre et paix</td>
-    <td>1869</td>
-    <td>Tolstoy</td>
-    <td>Léon</td>
-    <td>livre de poche</td>
-  </tr>
-  <input type="submit" value="Reserver"/>
+	<c:forEach var="livres" items="${livres}">
+		<tr>
+			<td><c:out value="${livres.titre}" /></td>
+			<td><c:out value="${livres.année}" /></td>
+			<td><c:out value="${livres.nom_auteur}" /></td>
+			<td><c:out value="${livres.prenom_auteur}" /></td>
+			<td><c:out value="${livres.editeur}" /></td>
+		</tr>
+		<input type="submit" value="Reserver"/>
+	</c:forEach>
+</table>
 </table>
 </body>
 </html>

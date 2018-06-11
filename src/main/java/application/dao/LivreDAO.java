@@ -30,6 +30,7 @@ public class LivreDAO {
 		jdbcTemplate.getJdbcOperations().execute("DROP TABLE IF EXISTS etat;");
 		jdbcTemplate.getJdbcOperations().execute(createDB);
 
+
 		Faker f = new Faker();
 		Random r = new Random();
 
