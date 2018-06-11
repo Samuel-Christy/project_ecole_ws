@@ -39,8 +39,8 @@ public class LivreController {
 	@GetMapping(path = "ws/books/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Livre getLivre(@PathVariable("id") int n) {
 
-		// @request INSERT (id,titre,annee,prenomAuteur,nomAuteur,editeur)
-		return getLivres().get(n);
+		
+		return livreDAO.getLivre(n);
 	}
 
 }
