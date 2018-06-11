@@ -14,7 +14,7 @@ import application.models.Livre;
 @RestController
 public class LivreController {
 	
-	@RequestMapping("ws/book")
+	@RequestMapping("ws/books")
 	 public List<Livre> getLivres()
 	 {
 		 //@Request Select ALL BDD 
