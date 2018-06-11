@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,33 +30,33 @@ tr:nth-child(even) {
 <table>
   <tr>
     <th>Titre</th>
-    <th>Année</th>
+    <th>AnnÃ©e</th>
     <th>Nom_Auteur</th>
      <th>Prenom_Auteur</th>
      <th>Editeur</th>
   </tr>
   <tr>
-    <td>Un tramway nommé désir</td>
+    <td>Un tramway nommÃ© dÃ©sir</td>
     <td>1947</td>
     <td>Willimas</td>
     <td>Tenessee</td>
     <td>livre de poche</td>
   </tr>
-  < <tr>
+  <tr>
     <td>Le vieux qui lisait des romans d'amour</td>
     <td>1992</td>
     <td>Spulveda</td>
     <td>Luis</td>
     <td>livre de poche</td>
   </tr>
-    < <tr>
+     <tr>
     <td>Guerre et paix</td>
     <td>1869</td>
     <td>Tolstoy</td>
-    <td>Léon</td>
+    <td>LÃ©on</td>
     <td>livre de poche</td>
   </tr>
-  <input type="submit" value="Reserver" />>
+  <input type="submit" value="Reserver"/>
 </table>
 </body>
 </html>
