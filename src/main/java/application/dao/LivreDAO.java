@@ -26,29 +26,29 @@ public class LivreDAO {
 
 	public void init() {
 
+	}
+
+	// feed the database :
+
+	public void feed() {
 		String createDB = "CREATE TABLE IF NOT EXISTS livres ( `id` INTEGER PRIMARY KEY, `titre` TEXT, `annee` TEXT, `nom_auteur` TEXT, `prenom_auteur` TEXT, `editeur` TEXT);";
-		jdbcTemplate.getJdbcOperations().execute("DROP TABLE IF EXISTS etat;");
+		jdbcTemplate.getJdbcOperations().execute("DROP TABLE IF EXISTS livres;");
 		jdbcTemplate.getJdbcOperations().execute(createDB);
 
 		Faker f = new Faker();
 		Random r = new Random();
 
-		if (getAllLivres().size() == 0) {
+		for (int i = 0; i < 30; i++) {
+			Livre l = new Livre();
+			l.setId(0);
+			l.setTitre(f.book().title());
+			l.setEditeur(f.book().publisher());
+			l.setNom_auteur(f.name().lastName());
+			l.setPrenom_auteur(f.name().firstName());
+			l.setAnnee(2018 - r.nextInt(2018 - 1492));
+			insertBook(l);
 
-			for (int i = 0; i < 100; i++) {
-				Livre l = new Livre();
-				l.setId(0);
-				l.setTitre(f.book().title());
-				l.setEditeur(f.book().publisher());
-				l.setNom_auteur(f.name().lastName());
-				l.setPrenom_auteur(f.name().firstName());
-				l.setAnnee(2018 - r.nextInt(2018 - 1492));
-				insertBook(l);
-			}
 		}
-
-		// feed the database :
-
 	}
 
 	public void insertBook(Livre livre) {
