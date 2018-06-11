@@ -31,7 +31,7 @@ public class Livre {
 
 	public String getNom_auteur() {
 		return nom_auteur;
-		
+
 	}
 
 	public void setNom_auteur(String nom_auteur) {
