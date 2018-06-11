@@ -28,15 +28,16 @@ public class LivreController {
 	}
 
 	@RequestMapping(path = "ws/books", produces = MediaType.APPLICATION_JSON_VALUE)
+	
 	// return List<Livre>
 	public List<Livre> getLivres() {
-
+		
 		ArrayList<Livre> livres = (ArrayList<Livre>) livreDAO.getAllLivres();
 
 		return livres;
 
 	}
-
+	//delete on database 
 	@GetMapping(path = "ws/books/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object getLivre(@PathVariable("id") int n) {
 
