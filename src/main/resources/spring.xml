@@ -15,13 +15,14 @@
 	<!-- <import resource="classpath:america.xml"/> -->
 	<!-- <import resource="classpath:aspects.xml"/>  -->
 	
+	<!-- <context:component-scan base-package="application"/>  -->
 	
 	<bean id="LivreBean" class="application.models.Livre" autowire="byType">
     	<!-- <constructor-arg ref="BrazilDAO"/> -->	
     </bean>
 	
 	
-	<bean id="LivreDAO" class="application.dao.LivreDAO" init-method="init">	
+	<bean id="LivreDAO" class="application.dao.LivreDAO" init-method="init" >	
     	<property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
     

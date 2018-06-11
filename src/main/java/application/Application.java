@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @SpringBootApplication
 @Configuration
+@ImportResource("classpath:spring.xml")
 public class Application {
 
 	@Value("${views:'erreur'}") // key:'defaultValue'

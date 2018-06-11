@@ -80,7 +80,10 @@ public class LivreDAO {
 		String sql = "SELECT * FROM livres";
 
 		List<Livre> livres = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Livre>(Livre.class));
-
+		// System.err.println(livres);
+		// for (Livre livre : livres) {
+		// System.err.println(livre.getEditeur());
+		// }
 		return livres;
 
 	}
