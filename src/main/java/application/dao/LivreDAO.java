@@ -20,7 +20,7 @@ public class LivreDAO {
 		jdbcTemplate.getJdbcOperations().execute("DROP TABLE IF EXISTS etat;");
 		jdbcTemplate.getJdbcOperations().execute(createDB);
 
-		// feed the database :
+		
 
 	}
 
