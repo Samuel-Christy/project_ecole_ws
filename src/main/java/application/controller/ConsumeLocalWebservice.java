@@ -18,7 +18,7 @@ import application.models.Livre;
 public class ConsumeLocalWebservice {
 
 	@Value("${webservice.gas.allbooks}")
-	public String url2;
+	private String url2;
 
 	@RequestMapping(path = "/sam/test")
 	public List<Livre> getBooks() {
