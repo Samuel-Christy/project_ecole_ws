@@ -59,17 +59,16 @@ public class ConsumeMYMWebservice {
 	 */
 	private List<RemoteLivre> getRemoteBooks() {
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<RemoteLivre[]> responseEntity = restTemplate.getForEntity(url, RemoteLivre[].class);
-		RemoteLivre[] objects = responseEntity.getBody();
-		MediaType contentType = responseEntity.getHeaders().getContentType();
-		HttpStatus statusCode = responseEntity.getStatusCode();
-		// System.out.println(url);
-		// for (Livre l : objects) {
-		// System.out.println(l.getTitre());
-		// }
+		try {
+			ResponseEntity<RemoteLivre[]> responseEntity = restTemplate.getForEntity(url, RemoteLivre[].class);
+			RemoteLivre[] objects = responseEntity.getBody();
+			lastRequest = Arrays.asList(objects);
+			return lastRequest;
+		} catch (Exception e) {
+			// return empty array if we could not join the remote server
+			return Arrays.asList(new RemoteLivre[] {});
+		}
 
-		lastRequest = Arrays.asList(objects);
-		return lastRequest;
 	}
 
 	/**
