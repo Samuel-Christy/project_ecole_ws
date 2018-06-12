@@ -3,6 +3,7 @@ package application.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,16 +17,17 @@ import application.models.Livre;
 @Controller
 public class ConsumeWebservice {
 
-	private static final String URL = "http://127.0.0.1:10000/ws/books";
+	@Value("${webservice.gas.allbooks}")
+	public String url2;
 
 	@RequestMapping(path = "/sam/test")
 	public List<Livre> getCampaigns() {
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Livre[]> responseEntity = restTemplate.getForEntity(URL, Livre[].class);
+		ResponseEntity<Livre[]> responseEntity = restTemplate.getForEntity(url2, Livre[].class);
 		Livre[] objects = responseEntity.getBody();
 		MediaType contentType = responseEntity.getHeaders().getContentType();
 		HttpStatus statusCode = responseEntity.getStatusCode();
-
+		System.out.println(url2);
 		// for (Livre l : objects) {
 		// System.out.println(l.getTitre());
 		// }
