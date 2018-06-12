@@ -18,6 +18,7 @@ public class LivreController {
 
 	@Autowired
 	LivreDAO livreDAO;
+	
 
 	public LivreDAO getLivreDAO() {
 		return livreDAO;
@@ -27,7 +28,7 @@ public class LivreController {
 		this.livreDAO = livreDAO;
 	}
 
-	@RequestMapping(path = "ws/books", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path = "${pathGetAllBooks}", produces = MediaType.APPLICATION_JSON_VALUE)
 	
 	// return List<Livre>
 	public List<Livre> getLivres() {
@@ -38,7 +39,7 @@ public class LivreController {
 
 	}
 	//delete on database 
-	@GetMapping(path = "ws/books/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path = "${pathBooksId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object getLivre(@PathVariable("id") int n) {
 
 		Livre l = livreDAO.getLivre(n);

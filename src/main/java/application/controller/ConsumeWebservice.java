@@ -20,7 +20,9 @@ public class ConsumeWebservice {
 	@Value("${webservice.gas.allbooks}")
 	public String url2;
 
-	@RequestMapping(path = "/sam/test")
+	//convert JSON to Livre Object
+	//return List<livre>
+	@RequestMapping(path = "${pathTest}")
 	public List<Livre> getCampaigns() {
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<Livre[]> responseEntity = restTemplate.getForEntity(url2, Livre[].class);
@@ -35,7 +37,7 @@ public class ConsumeWebservice {
 		return Arrays.asList(objects);
 	}
 
-	@RequestMapping(path = "/sam/index")
+	@RequestMapping(path = "${pathIndex}")
 	public String index(ModelMap model) {
 		List<Livre> livres = getCampaigns();
 		model.addAttribute("livres", livres);
