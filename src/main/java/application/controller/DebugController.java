@@ -21,27 +21,38 @@ public class DebugController {
 	private String databaseFeed;
 	
 	@Value("${DBnumber}")
-	private String databaseNumber;
+	private String databaseNumberBooks;
 	
 	
 	@Autowired
 	LivreDAO livreDAO;
 
+	/**
+	 * @return livreDAO
+	 */
 	public LivreDAO getLivreDAO() {
 		return livreDAO;
 	}
 
+	/**
+	 * @param livreDAO the livreDAO to set
+	 */
 	public void setLivreDAO(LivreDAO livreDAO) {
 		this.livreDAO = livreDAO;
 	}
 
+	/**
+	 * Call the method feed for reinject data on table
+	 * Display Hash map to describe what was done
+	 * @return Map<String,String> 
+	 */
 	@GetMapping(path = "${pathInitDatabase}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object feedDatabase() {
 		livreDAO.feed();
 		Map<String, String> r = new HashMap<String, String>();
 		r.put(databaseReset, "" + true);
 		r.put(databaseFeed, "" + true);
-		r.put(databaseNumber, "" + livreDAO.getAllLivres().size());
+		r.put(databaseNumberBooks, "" + livreDAO.getAllLivres().size());
 
 		return r;
 	};

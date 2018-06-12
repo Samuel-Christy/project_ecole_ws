@@ -16,10 +16,18 @@ public class LivreDAO {
 
 	private NamedParameterJdbcTemplate jdbcTemplate;
 
+	/**
+	 * 
+	 * @return the jdbcTemplate
+	 */
 	public NamedParameterJdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}
 
+	/**
+	 * 
+	 * @param jdbcTemplate the jdbcTemplate to set
+	 */
 	public void setJdbcTemplate(NamedParameterJdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
@@ -29,7 +37,12 @@ public class LivreDAO {
 	}
 
 	// feed the database :
-
+	
+	/**
+	 * Create the database if not exists 
+	 * if exist drop table and create a new table with 30 data on table
+	 *
+	 */
 	public void feed() {
 		String createDB = "CREATE TABLE IF NOT EXISTS livres ( `id` INTEGER PRIMARY KEY, `titre` TEXT, `annee` TEXT, `nom_auteur` TEXT, `prenom_auteur` TEXT, `editeur` TEXT);";
 		jdbcTemplate.getJdbcOperations().execute("DROP TABLE IF EXISTS livres;");
@@ -51,6 +64,10 @@ public class LivreDAO {
 		}
 	}
 
+	/**
+	 * Add a new livre on database
+	 * @param livre
+	 */
 	public void insertBook(Livre livre) {
 		Map<String, String> etat1 = new HashMap<>();
 
@@ -69,12 +86,21 @@ public class LivreDAO {
 
 	}
 
+	/**
+	 * Delete a livre on database
+	 * @param livre
+	 */
 	public void deleteBook(Livre livre) {
 		Map<String, Integer> etat1 = new HashMap<>();
 		etat1.put("id", livre.getId());
 		jdbcTemplate.update("DELETE FROM livres WHERE id=:id", etat1);
 	}
 
+	/**
+	 * Execute the SELECT * on database
+	 * convert the result request to Livre object
+	 * @return List<Livre>
+	 */
 	public List<Livre> getAllLivres() {
 
 		String sql = "SELECT * FROM livres";
@@ -87,7 +113,16 @@ public class LivreDAO {
 		return livres;
 
 	}
-
+		/**
+		 * add the id to Map<String,Integer>
+		 * Execute the request Select to select one livre with the @params id 
+		 * try to convert the result request to Livre r 
+		 * catch if request fail and Livre r are null
+		 * convert the result request to Livre r
+		 * 
+		 * @param id
+		 * @return Livre
+		 */
 	public Livre getLivre(int id) {
 		Map<String, Integer> etat = new HashMap<>();
 		Livre r;

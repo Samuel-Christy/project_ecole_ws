@@ -19,11 +19,12 @@ public class LivreController {
 	@Autowired
 	LivreDAO livreDAO;
 	
-
+	//@return LivreDAO
 	public LivreDAO getLivreDAO() {
 		return livreDAO;
 	}
-
+	
+	//@params LivreDAO
 	public void setLivreDAO(LivreDAO livreDAO) {
 		this.livreDAO = livreDAO;
 	}

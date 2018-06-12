@@ -29,6 +29,11 @@ public class PageController {
 		this.dao = dao;
 	}
 	
+	/**
+	 * 
+	 * @param model
+	 * @return string url : http://127.0.0.1:10000/index
+	 */
 	@RequestMapping("/")
 	public String index(Model model) {
 		
