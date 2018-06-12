@@ -10,6 +10,11 @@ import application.models.Livre;
 public class LivresTest<MockMvc> {
   
 
+	/**
+	 * 
+	 * @result Titre will be persisted without any errors,
+	 *         and livre.getTitre() will no longer be <code>null</code>
+	 */
 	@Test
 	public void testGetTitre() {
 		 Livre livre = new Livre();
@@ -19,6 +24,11 @@ public class LivresTest<MockMvc> {
 		
 	}
 	
+	/**
+	 * 
+	 * @result Annee will be persisted without any errors,
+	 *         and livre.getAnnee() will no longer be <code>null</code>
+	 */
 	@Test
 	public void testGetAnnee() {
 		 Livre livre = new Livre();
@@ -27,7 +37,13 @@ public class LivresTest<MockMvc> {
 		assertEquals(1947, livre.getAnnee());
 		livre.setAnnee (annee);
 		    
-}
+	}
+	
+	/**
+	 * 
+	 * @result Nom_auteur will be persisted without any errors,
+	 *         and livre.getNom_auteur() will no longer be <code>null</code>
+	 */
 	@Test
 	public void testGetNom_Auteur() {
 		 Livre livre = new Livre();
@@ -36,6 +52,12 @@ public class LivresTest<MockMvc> {
 //		assertEquals("Willimams", livre.getNom_auteur());
 		livre.setNom_auteur("nom_auteur");
 }
+	
+	/**
+	 * 
+	 * @result Prenom_Auteur will be persisted without any errors,
+	 *         and livre.getPrenom_auteur() will no longer be <code>null</code>
+	 */
 	@Test
 	public void testGetPrenom_Auteur() {
 		 Livre livre = new Livre();
@@ -43,6 +65,12 @@ public class LivresTest<MockMvc> {
 		assertTrue( livre.getPrenom_auteur().contains("Tenessee"));
 		livre.setPrenom_auteur("prenom_auteur");
 }
+	
+	/**
+	 * 
+	 * @result Editeur will be persisted without any errors,
+	 *         and livre.getEditeur() will no longer be <code>null</code>
+	 */
 	@Test
 	public void testGetEditeur() {
 		 Livre livre = new Livre();
