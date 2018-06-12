@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,7 @@ div.container {
 </head>
 <body style="">
 
-	<h2>Liste des Livres sur le dépot MYM</h2>
+	<h2>Liste des Livres sur le dÃ©pot MYM</h2>
 
 	<div class="table-responsive">
 		<table id="books" class=" table table-hover" style="width: 100%">
@@ -36,7 +36,7 @@ div.container {
 					<th>Action</th>
 					<th>id</th>
 					<th>Titre</th>
-					<th>Année</th>
+					<th>AnnÃ©e</th>
 					<th>Nom Auteur</th>
 					<th>&Eacute;diteur</th>
 
@@ -46,7 +46,7 @@ div.container {
 				<c:forEach var="livre_remote" items="${remote_livres}">
 					<tr>
 						<td><a class="btn btn-xs btn-success"
-							href="/mym/${livre_remote.ref_livre}">Réserver</a></td>
+							href="/mym/${livre_remote.ref_livre}">RÃ©server</a></td>
 						<td><c:out value="${livre_remote.ref_livre}" /></td>
 						<td><c:out value="${livre_remote.titre_livre}" /></td>
 						<td><c:out value="${livre_remote.annee_livre}" /></td>
@@ -62,7 +62,7 @@ div.container {
 
 	<hr>
 
-	<h2>Liste des Livres sur le dépot local</h2>
+	<h2>Liste des Livres sur le dÃ©pot local</h2>
 
 	<div class="table-responsive">
 		<table id="books_local" class=" table table-hover" style="width: 100%">
@@ -71,9 +71,9 @@ div.container {
 					<th>Action</th>
 					<th>id</th>
 					<th>Titre</th>
-					<th>Année</th>
+					<th>AnnÃ©e</th>
 					<th>Nom Auteur</th>
-					<th>Prénom Auteur</th>
+					<th>PrÃ©nom Auteur</th>
 					<th>&Eacute;diteur</th>
 
 				</tr>
@@ -81,7 +81,7 @@ div.container {
 			<tbody>
 				<c:forEach var="livre_local" items="${local_livres}">
 					<tr>
-						<td><a class="btn btn-xs btn-default disabled" href="">Réserver</a></td>
+						<td><a class="btn btn-xs btn-default disabled" href="">RÃ©server</a></td>
 						<td><c:out value="${livre_local.id}" /></td>
 						<td><c:out value="${livre_local.titre}" /></td>
 						<td><c:out value="${livre_local.annee}" /></td>
