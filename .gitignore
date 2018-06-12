@@ -3,4 +3,7 @@ target/*
 .classpath
 .project
 /target/
+/bin/
 database.sqlite
+bibliotheque.iml
+.idea
