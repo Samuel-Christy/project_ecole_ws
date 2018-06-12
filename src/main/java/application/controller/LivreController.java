@@ -1,7 +1,9 @@
 package application.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -45,7 +47,10 @@ public class LivreController {
 			livreDAO.deleteBook(l);
 			return l;
 		} else {
-			return new String[] { "error", "not found" };
+			// returns an error JSON.
+			Map<String, String> r = new HashMap<String, String>();
+			r.put("error", "not found");
+			return r;
 		}
 	}
 

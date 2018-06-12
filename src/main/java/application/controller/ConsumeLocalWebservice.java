@@ -15,13 +15,13 @@ import org.springframework.web.client.RestTemplate;
 import application.models.Livre;
 
 @Controller
-public class ConsumeWebservice {
+public class ConsumeLocalWebservice {
 
 	@Value("${webservice.gas.allbooks}")
 	public String url2;
 
 	@RequestMapping(path = "/sam/test")
-	public List<Livre> getCampaigns() {
+	public List<Livre> getBooks() {
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<Livre[]> responseEntity = restTemplate.getForEntity(url2, Livre[].class);
 		Livre[] objects = responseEntity.getBody();
@@ -37,7 +37,7 @@ public class ConsumeWebservice {
 
 	@RequestMapping(path = "/sam/index")
 	public String index(ModelMap model) {
-		List<Livre> livres = getCampaigns();
+		List<Livre> livres = getBooks();
 		model.addAttribute("livres", livres);
 		return "index2";
 	}
