@@ -29,7 +29,8 @@ public class LivreDAO {
 
 	/**
 	 * 
-	 * @param jdbcTemplate the jdbcTemplate to set
+	 * @param jdbcTemplate
+	 *            the jdbcTemplate to set
 	 */
 	public void setJdbcTemplate(NamedParameterJdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
@@ -40,10 +41,12 @@ public class LivreDAO {
 	}
 
 	// feed the database :
-	
+
 	/**
-	 * <p>Create the database if not exists 
-	 * if exist drop table and create a new table with 30 data on table</p>
+	 * <p>
+	 * Create the database if not exists if exist drop table and create a new table
+	 * with 30 data on table
+	 * </p>
 	 *
 	 */
 	public void feed() {
@@ -69,6 +72,7 @@ public class LivreDAO {
 
 	/**
 	 * Add a new livre on database
+	 * 
 	 * @param livre
 	 */
 	public void insertBook(Livre livre) {
@@ -91,6 +95,7 @@ public class LivreDAO {
 
 	/**
 	 * Delete a livre on database
+	 * 
 	 * @param livre
 	 */
 	public void deleteBook(Livre livre) {
@@ -100,8 +105,8 @@ public class LivreDAO {
 	}
 
 	/**
-	 * Execute the SELECT * on database
-	 * convert the result request to Livre object
+	 * Execute the SELECT * on database convert the result request to Livre object
+	 * 
 	 * @return livres
 	 */
 	public List<Livre> getAllLivres() {
@@ -116,16 +121,15 @@ public class LivreDAO {
 		return livres;
 
 	}
-		/**
-		 * put the @param id on Map
-		 * Execute the request Select to select one livre with the @params id 
-		 * try to convert the result request to Livre r 
-		 * catch if request fail and Livre r are null
-		 * convert the result request to Livre r
-		 * 
-		 * @param id
-		 * @return Livre
-		 */
+
+	/**
+	 * put the @param id on Map Execute the request Select to select one livre with
+	 * the @params id try to convert the result request to Livre r catch if request
+	 * fail and Livre r are null convert the result request to Livre r
+	 * 
+	 * @param id
+	 * @return Livre
+	 */
 	public Livre getLivre(int id) {
 		Map<String, Integer> etat = new HashMap<>();
 		Livre r;

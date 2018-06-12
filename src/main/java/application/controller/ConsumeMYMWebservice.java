@@ -150,7 +150,7 @@ public class ConsumeMYMWebservice {
 					local.setAnnee(Integer.parseInt(remote.getAnnee_livre()));
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					local.setAnnee(0);
 				}
 				// System.out.println("ConsumeMYMWebservice.index2()remote != null ->
