@@ -71,24 +71,19 @@ public class RemoteLivre {
 		this.nom_auteur = nom_auteur;
 	}
 
-
 	/**
 	 * 
 	 * @return annee_livre
 	 */
-
 	public String getAnnee_livre() {
 		return annee_livre;
 	}
-
 
 	/**
 	 * 
 	 * @param annee_livre the annee_livre to set
 	 */
-
 	public void setAnnee_livre(String annee_livre) {
-
 		this.annee_livre = annee_livre;
 	}
 

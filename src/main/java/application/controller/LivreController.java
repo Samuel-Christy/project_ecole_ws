@@ -35,25 +35,31 @@ public class LivreController {
 		this.livreDAO = livreDAO;
 	}
 
-	@RequestMapping(path = "${pathGetAllBooks}", produces = MediaType.APPLICATION_JSON_VALUE)
+	
 	
 	/**
 	 * Returns an List of Object Livre
 	 * call method getAllLivres to LivreDAO who executed request Select* from database 
 	 *  @return List<Livre>
 	 */
-	public List<Livre> getLivres() {		
+	@RequestMapping(path = "${pathGetAllBooks}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Livre> getLivres() {
+		//mapped to hostname:/ws/books
 		ArrayList<Livre> livres = (ArrayList<Livre>) livreDAO.getAllLivres();
 
 		return livres;
 	}
 	
 	/**
+	 * Verify if l exist on database
+	 * delete l on database
+	 * else @return Object Map<String,String>
 	 * @params Livre id
-	 * @return 
+	 * @return Object Livre 
 	 */
 	@GetMapping(path = "${pathBooksId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object getLivre(@PathVariable("id") int n) {
+		//mapped to hostname:/ws/books/{id}
 
 		Livre l = livreDAO.getLivre(n);
 		if (l != null) {

@@ -36,7 +36,7 @@ public class PageController {
 	 */
 	@RequestMapping("/")
 	public String index(Model model) {
-		
+		//mapped to hostname:/
 		System.out.println("PageController.index()");
 		ModelAndView mav = new ModelAndView("livres") ;
         List<Livre> livres = dao.getAllLivres();

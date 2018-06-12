@@ -87,9 +87,8 @@ public class ConsumeMYMWebservice {
 
 	/**
 	 * verify if List<RemoteLivre> not null @return RemoteLivre object
-	 * 
+	 * else @return null
 	 * @param id
-	 * @return livre
 	 */
 	private RemoteLivre getBook(int id) {
 		if (lastRequest != null)
@@ -99,9 +98,15 @@ public class ConsumeMYMWebservice {
 			}
 		return null;
 	}
-
+	/**
+	 * add all RemoteLivre on attribute "remote_livres"
+	 * add all Livre on attribute "local_livres" 
+	 * @param model
+	 * @return String
+	 */
 	@RequestMapping(path = "/mym")
 	public String index(ModelMap model) {
+		//mapped to hostname:/mym
 		List<RemoteLivre> remoteLivres = getRemoteBooks();
 		List<Livre> localLivres = getLocalBooks();
 
@@ -109,9 +114,15 @@ public class ConsumeMYMWebservice {
 		model.addAttribute("local_livres", localLivres);
 		return "index_remote";
 	}
-
+	
+	/** TODO
+	 * Verify if the RemoteLivre 
+	 * @param id
+	 * @return String
+	 */
 	@RequestMapping(path = "/mym/{id}")
 	public String index2(@PathVariable(name = "id") int id) {
+		//mapped to hostname:/mym/{id}
 		System.out.println(id);
 		RemoteLivre remote = getBook(id);
 		// System.out.println("ConsumeMYMWebservice.index2()");
