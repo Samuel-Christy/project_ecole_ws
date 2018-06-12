@@ -49,7 +49,7 @@ div.container {
 				<c:forEach var="livre_remote" items="${remote_livres}">
 					<tr>
 						<td><a class="btn btn-xs btn-success"
-							href="${livre_remote.ref_livre}">Réserver</a></td>
+							href="/mym/${livre_remote.ref_livre}">Réserver</a></td>
 						<td><c:out value="${livre_remote.ref_livre}" /></td>
 						<td><c:out value="${livre_remote.titre_livre}" /></td>
 						<td><c:out value="${livre_remote.annee_livre}" /></td>
