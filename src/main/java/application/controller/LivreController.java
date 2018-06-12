@@ -19,27 +19,37 @@ public class LivreController {
 	@Autowired
 	LivreDAO livreDAO;
 	
-	//@return LivreDAO
+	/**
+	 * @return LivreDAO
+	 */
 	public LivreDAO getLivreDAO() {
 		return livreDAO;
 	}
 	
-	//@params LivreDAO
+	/**
+	 * @params livreDAO the livreDAO to set
+	 */
 	public void setLivreDAO(LivreDAO livreDAO) {
 		this.livreDAO = livreDAO;
 	}
 
 	@RequestMapping(path = "${pathGetAllBooks}", produces = MediaType.APPLICATION_JSON_VALUE)
 	
-	// return List<Livre>
-	public List<Livre> getLivres() {
-		
+	/**
+	 * Returns an List of Object Livre
+	 * call method getAllLivres to LivreDAO who executed request Select* from database 
+	 *  @return List<Livre>
+	 */
+	public List<Livre> getLivres() {		
 		ArrayList<Livre> livres = (ArrayList<Livre>) livreDAO.getAllLivres();
 
 		return livres;
-
 	}
-	//delete on database 
+	
+	/**
+	 * @params Livre id
+	 * @return 
+	 */
 	@GetMapping(path = "${pathBooksId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object getLivre(@PathVariable("id") int n) {
 
