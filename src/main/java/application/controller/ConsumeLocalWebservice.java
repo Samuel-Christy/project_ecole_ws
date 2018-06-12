@@ -18,16 +18,16 @@ import application.models.Livre;
 public class ConsumeLocalWebservice {
 
 	@Value("${webservice.gas.allbooks}")
-	private String url2;
+	private String url;
 
 	@RequestMapping(path = "/sam/test")
 	public List<Livre> getBooks() {
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Livre[]> responseEntity = restTemplate.getForEntity(url2, Livre[].class);
+		ResponseEntity<Livre[]> responseEntity = restTemplate.getForEntity(url, Livre[].class);
 		Livre[] objects = responseEntity.getBody();
 		MediaType contentType = responseEntity.getHeaders().getContentType();
 		HttpStatus statusCode = responseEntity.getStatusCode();
-		System.out.println(url2);
+		System.out.println(url);
 		// for (Livre l : objects) {
 		// System.out.println(l.getTitre());
 		// }
