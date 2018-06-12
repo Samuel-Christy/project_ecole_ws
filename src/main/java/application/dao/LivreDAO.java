@@ -51,7 +51,7 @@ public class LivreDAO {
 		Faker f = new Faker();
 		Random r = new Random();
 
-		for (int i = 0; i < 30; i++) {
+		for (int i = 0; i < 300; i++) {
 			Livre l = new Livre();
 			l.setId(0);
 			l.setTitre(f.book().title());
