@@ -50,7 +50,7 @@
     </thead>
     <tbody>
 	<c:forEach var="livre" items="${livres}">
-		<tr><td><a class="btn btn-xs btn-success" href="">Réserver</a></td>
+		<tr><td><a class="btn btn-xs btn-default disabled" href="">Réserver</a></td>
             <td><c:out value="${livre.id}"/></td>
 			<td><c:out value="${livre.titre}"/></td>
 			<td><c:out value="${livre.annee}"/></td>
