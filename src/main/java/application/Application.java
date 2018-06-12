@@ -19,8 +19,8 @@ public class Application {
 
 	@Value("${views:'erreur'}") // key:'defaultValue'
 	private String viewsPrefix;
-	
-	@Value("${suffix}")//value:.jsp
+
+	@Value("${suffix}") // value:.jsp
 	private String suffix;
 
 	public static void main(String[] args) {
@@ -31,8 +31,6 @@ public class Application {
 
 	@Bean
 	public UrlBasedViewResolver getViewResolver() {
-		System.err.println("...");
-		// System.out.println(viewsPrefix);
 		UrlBasedViewResolver v = new InternalResourceViewResolver();
 		v.setPrefix(viewsPrefix);
 		v.setSuffix(suffix);

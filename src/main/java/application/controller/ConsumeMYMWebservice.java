@@ -43,7 +43,8 @@ public class ConsumeMYMWebservice {
 
 	/**
 	 * 
-	 * @param livreDAO the livreDAO to set
+	 * @param livreDAO
+	 *            the livreDAO to set
 	 */
 	public void setLivreDAO(LivreDAO livreDAO) {
 		this.livreDAO = livreDAO;
@@ -53,6 +54,7 @@ public class ConsumeMYMWebservice {
 
 	/**
 	 * convert the JSON to RemoteLivre[]
+	 * 
 	 * @return List<RemoteLivre>
 	 */
 	private List<RemoteLivre> getRemoteBooks() {
@@ -72,6 +74,7 @@ public class ConsumeMYMWebservice {
 
 	/**
 	 * convert the JSON to Livre[]
+	 * 
 	 * @return objects
 	 */
 	public List<Livre> getLocalBooks() {
@@ -89,8 +92,9 @@ public class ConsumeMYMWebservice {
 	}
 
 	/**
-	 * verify if List<RemoteLivre> not null @return RemoteLivre object
-	 * else @return null
+	 * verify if List<RemoteLivre> not null @return RemoteLivre object else @return
+	 * null
+	 * 
 	 * @param id
 	 */
 	private RemoteLivre getBook(int id) {
@@ -101,31 +105,36 @@ public class ConsumeMYMWebservice {
 			}
 		return null;
 	}
+
 	/**
-	 * <p>add all RemoteLivre on attribute "remote_livres"
-	 * add all Livre on attribute "local_livres" </p>
+	 * <p>
+	 * add all RemoteLivre on attribute "remote_livres" add all Livre on attribute
+	 * "local_livres"
+	 * </p>
+	 * 
 	 * @param model
 	 * @return String
 	 */
 	@RequestMapping(path = "/mym")
 	public String index(ModelMap model) {
-		//mapped to hostname:/mym
+		// mapped to hostname:/mym
 		List<RemoteLivre> remoteLivres = getRemoteBooks();
 		List<Livre> localLivres = getLocalBooks();
 
 		model.addAttribute("remote_livres", remoteLivres);
 		model.addAttribute("local_livres", localLivres);
-		return "index_remote";
+		return "index";
 	}
-	
-	/** TODO
-	 * Verify if the RemoteLivre 
+
+	/**
+	 * TODO Verify if the RemoteLivre
+	 * 
 	 * @param id
 	 * @return String
 	 */
 	@RequestMapping(path = "/mym/{id}")
 	public String index2(@PathVariable(name = "id") int id) {
-		//mapped to hostname:/mym/{id}
+		// mapped to hostname:/mym/{id}
 		System.out.println(id);
 		RemoteLivre remote = getBook(id);
 		// System.out.println("ConsumeMYMWebservice.index2()");
