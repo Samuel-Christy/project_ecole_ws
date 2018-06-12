@@ -14,6 +14,9 @@ import application.models.Livre;
 
 public class LivreDAO {
 
+	/**
+	 * @see NamedParameterJdbcTemplate
+	 */
 	private NamedParameterJdbcTemplate jdbcTemplate;
 
 	/**
@@ -39,8 +42,8 @@ public class LivreDAO {
 	// feed the database :
 	
 	/**
-	 * Create the database if not exists 
-	 * if exist drop table and create a new table with 30 data on table
+	 * <p>Create the database if not exists 
+	 * if exist drop table and create a new table with 30 data on table</p>
 	 *
 	 */
 	public void feed() {
@@ -99,7 +102,7 @@ public class LivreDAO {
 	/**
 	 * Execute the SELECT * on database
 	 * convert the result request to Livre object
-	 * @return List<Livre>
+	 * @return livres
 	 */
 	public List<Livre> getAllLivres() {
 
@@ -114,7 +117,7 @@ public class LivreDAO {
 
 	}
 		/**
-		 * add the id to Map<String,Integer>
+		 * put the @param id on Map
 		 * Execute the request Select to select one livre with the @params id 
 		 * try to convert the result request to Livre r 
 		 * catch if request fail and Livre r are null

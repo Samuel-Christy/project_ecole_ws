@@ -23,7 +23,9 @@ public class DebugController {
 	@Value("${DBnumber}")
 	private String databaseNumberBooks;
 	
-	
+	/**
+	 * @see LivreDAO
+	 */
 	@Autowired
 	LivreDAO livreDAO;
 
@@ -44,7 +46,7 @@ public class DebugController {
 	/**
 	 * Call the method feed for reinject data on table
 	 * Display Hash map to describe what was done
-	 * @return Map<String,String> 
+	 * @return r
 	 */
 	@GetMapping(path = "${pathInitDatabase}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object feedDatabase() {

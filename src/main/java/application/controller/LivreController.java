@@ -18,6 +18,9 @@ import application.models.Livre;
 @RestController
 public class LivreController {
 
+	/**
+	 * @see LivreDAO
+	 */
 	@Autowired
 	LivreDAO livreDAO;
 	
@@ -29,7 +32,7 @@ public class LivreController {
 	}
 	
 	/**
-	 * @params livreDAO the livreDAO to set
+	 * @param livreDAO the livreDAO to set
 	 */
 	public void setLivreDAO(LivreDAO livreDAO) {
 		this.livreDAO = livreDAO;
@@ -38,9 +41,9 @@ public class LivreController {
 	
 	
 	/**
-	 * Returns an List of Object Livre
-	 * call method getAllLivres to LivreDAO who executed request Select* from database 
-	 *  @return List<Livre>
+	 * <p>Returns an List of Object Livre
+	 * call method getAllLivres to LivreDAO who executed request Select* from database </p>
+	 *  @return livres
 	 */
 	@RequestMapping(path = "${pathGetAllBooks}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Livre> getLivres() {
@@ -53,8 +56,8 @@ public class LivreController {
 	/**
 	 * Verify if l exist on database
 	 * delete l on database
-	 * else @return Object Map<String,String>
-	 * @params Livre id
+	 * else @return Object
+	 * @param n its the id of book
 	 * @return Object Livre 
 	 */
 	@GetMapping(path = "${pathBooksId}", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -14,6 +14,10 @@ import application.models.Livre;
 
 @Controller
 public class PageController {
+	/**
+	 * @see LivreDAO
+	 */
+	
 	@Autowired
 	LivreDAO dao;
 	/**

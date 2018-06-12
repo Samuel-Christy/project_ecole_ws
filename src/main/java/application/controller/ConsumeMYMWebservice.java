@@ -27,6 +27,9 @@ public class ConsumeMYMWebservice {
 	@Value("${webservice.gas.allbooks}")
 	private String url2;
 
+	/**
+	 * @see LivreDAO
+	 */
 	@Autowired
 	LivreDAO livreDAO;
 
@@ -69,7 +72,7 @@ public class ConsumeMYMWebservice {
 
 	/**
 	 * convert the JSON to Livre[]
-	 * @return List<Livre>
+	 * @return objects
 	 */
 	public List<Livre> getLocalBooks() {
 		RestTemplate restTemplate = new RestTemplate();
@@ -99,8 +102,8 @@ public class ConsumeMYMWebservice {
 		return null;
 	}
 	/**
-	 * add all RemoteLivre on attribute "remote_livres"
-	 * add all Livre on attribute "local_livres" 
+	 * <p>add all RemoteLivre on attribute "remote_livres"
+	 * add all Livre on attribute "local_livres" </p>
 	 * @param model
 	 * @return String
 	 */
