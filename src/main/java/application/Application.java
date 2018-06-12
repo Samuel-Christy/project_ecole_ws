@@ -19,6 +19,9 @@ public class Application {
 
 	@Value("${views:'erreur'}") // key:'defaultValue'
 	private String viewsPrefix;
+	
+	@Value("${suffix}")//value:.jsp
+	private String suffix;
 
 	public static void main(String[] args) {
 		AbstractApplicationContext ctxt = new FileSystemXmlApplicationContext("classpath:spring.xml");
@@ -32,7 +35,7 @@ public class Application {
 		// System.out.println(viewsPrefix);
 		UrlBasedViewResolver v = new InternalResourceViewResolver();
 		v.setPrefix(viewsPrefix);
-		v.setSuffix(".jsp");
+		v.setSuffix(suffix);
 		v.setViewClass(JstlView.class);
 		return v;
 	}

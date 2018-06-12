@@ -39,14 +39,13 @@ tr:nth-child(even) {
 	<c:forEach var="livres" items="${livres}">
 		<tr>
 			<td><c:out value="${livres.titre}" /></td>
-			<td><c:out value="${livres.année}" /></td>
+			<td><c:out value="${livres.annee}" /></td>
 			<td><c:out value="${livres.nom_auteur}" /></td>
 			<td><c:out value="${livres.prenom_auteur}" /></td>
 			<td><c:out value="${livres.editeur}" /></td>
 		</tr>
 		<input type="submit" value="Reserver"/>
 	</c:forEach>
-</table>
 </table>
 </body>
 </html>

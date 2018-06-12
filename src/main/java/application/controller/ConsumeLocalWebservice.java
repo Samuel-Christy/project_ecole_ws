@@ -20,8 +20,15 @@ public class ConsumeLocalWebservice {
 	@Value("${webservice.gas.allbooks}")
 	private String url;
 
+<<<<<<< HEAD:src/main/java/application/controller/ConsumeLocalWebservice.java
 	@RequestMapping(path = "/sam/test")
 	public List<Livre> getBooks() {
+=======
+	//convert JSON to Livre Object
+	//return List<livre>
+	@RequestMapping(path = "${pathTest}")
+	public List<Livre> getCampaigns() {
+>>>>>>> b086518fa7afdbadaedddf8b3988953fdf66878e:src/main/java/application/controller/ConsumeWebservice.java
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<Livre[]> responseEntity = restTemplate.getForEntity(url, Livre[].class);
 		Livre[] objects = responseEntity.getBody();
@@ -35,7 +42,7 @@ public class ConsumeLocalWebservice {
 		return Arrays.asList(objects);
 	}
 
-	@RequestMapping(path = "/sam/index")
+	@RequestMapping(path = "${pathIndex}")
 	public String index(ModelMap model) {
 		List<Livre> livres = getBooks();
 		model.addAttribute("livres", livres);
