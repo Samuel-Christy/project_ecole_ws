@@ -37,16 +37,6 @@ public class PageController {
         List<Livre> livres = dao.getAllLivres();
         mav.addObject("livres", livres);  
         
-		
-		for (int i = 0; i < getDao().getAllLivres().size(); i++) {
-		model.addAttribute("id",getDao().getAllLivres().get(i).getId() );
-		model.addAttribute("titre", getDao().getAllLivres().get(i).getTitre());
-		model.addAttribute("annee", getDao().getAllLivres().get(i).getAnnee());
-		model.addAttribute("nom_auteur",getDao().getAllLivres().get(i).getNom_auteur());
-		model.addAttribute("prenom_auteur", getDao().getAllLivres().get(i).getPrenom_auteur());
-		model.addAttribute("editeur", getDao().getAllLivres().get(i).getEditeur());
-		}
-		
 		return "index";
 	
 	}

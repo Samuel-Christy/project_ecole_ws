@@ -2,8 +2,18 @@ package application.models;
 
 public class RemoteLivre {
 
+	private int ref_livre;
+
+	public int getRef_livre() {
+		return ref_livre;
+	}
+
+	public void setRef_livre(int ref_livre) {
+		this.ref_livre = ref_livre;
+	}
+
 	private String titre_livre, editeur_livre, nom_auteur;
-	private int annee_livre;
+	private String annee_livre;
 
 	public String getTitre_livre() {
 		return titre_livre;
@@ -29,11 +39,11 @@ public class RemoteLivre {
 		this.nom_auteur = nom_auteur;
 	}
 
-	public int getAnnee_livre() {
+	public String getAnnee_livre() {
 		return annee_livre;
 	}
 
-	public void setAnnee_livre(int annee_livre) {
+	public void setAnnee_livre(String annee_livre) {
 		this.annee_livre = annee_livre;
 	}
 

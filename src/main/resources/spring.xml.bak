@@ -32,7 +32,7 @@
     
     <bean id="dmds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.sqlite.JDBC"></property>
-		<property name="url" value="jdbc:sqlite:database.sqlite"></property>					
+		<property name="url" value="jdbc:sqlite:${dbname}"></property>					
     </bean>
 	
 	
