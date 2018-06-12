@@ -16,7 +16,9 @@
 	<properties>
 		<!-- java version, for eclipse & maven -->
 		<java.version>1.8</java.version>
+		 <!-- <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
 	</properties>
+	
 	<dependencies>
 
 				<dependency>
@@ -31,12 +33,12 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- embedded tomcat 
+		<!-- embedded tomcat -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<optional>true</optional>
-		</dependency> -->
+		</dependency> 
 		
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
@@ -87,7 +89,82 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
-
+<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<type>jar</type>
+			<scope> Test</scope>
+		</dependency>
+		
 	</dependencies>
-
+<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				
+				<configuration>
+					<descriptorRefs>
+				
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+			
+			
+			<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+ 
+        <configuration>
+          <archive>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+              <addClasspath>true</addClasspath>
+            </manifest>
+            <manifestEntries>
+              <Main-Class>application/App</Main-Class>
+<!--               <Class-Path>application/</Class-Path> -->
+              <url>${project.url}</url>
+              <key>value</key>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+              <addClasspath>true</addClasspath>
+            </manifest>
+            <manifestEntries>
+              <Main-Class>application/Application</Main-Class>
+<!--               <Class-Path>application/</Class-Path> -->
+              <url>${project.url}</url>
+              <key>value</key>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+			
+			
+		</plugins>
+		</build>
 </project>
